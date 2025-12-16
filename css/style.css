@@ -1,0 +1,500 @@
+/*
+|--------------------------------------------------------------------------
+| CSS Reset & Base Styles (Light Mode Blue Accent)
+|--------------------------------------------------------------------------
+*/
+:root {
+    --color-primary: #007bff; /* Blue */
+    --color-secondary: #6c757d; /* Grey */
+    --color-background: #f8f9fa; /* Light Grey */
+    --color-text: #212529; /* Dark Grey */
+    --color-light: #ffffff;
+    --color-divider: #dee2e6; /* Lighter divider color */
+    --font-primary: 'Helvetica Neue', Arial, sans-serif;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 3rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    overflow-x: hidden; 
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+p { margin-bottom: 1rem; }
+
+/* Home Page Main Heading for visual priority */
+.main-heading { 
+    font-size: 3.5rem; 
+    margin-bottom: 0.5rem;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Main Layout & Structure */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+section {
+    padding: var(--spacing-lg) 0;
+    border-bottom: 1px solid var(--color-divider);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Header & Navigation 
+|--------------------------------------------------------------------------
+*/
+.site-header {
+    background: var(--color-light);
+    border-bottom: 1px solid var(--color-divider);
+    padding: 1rem var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.nav-list a {
+    color: var(--color-text);
+    font-weight: 500;
+    padding: 0.5rem;
+    position: relative;
+}
+
+.nav-list a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Buttons & CTA 
+|--------------------------------------------------------------------------
+*/
+.button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.primary-cta {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border-color: var(--color-primary);
+}
+
+.primary-cta:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.secondary-cta {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+    border-color: var(--color-secondary);
+    margin-left: 1rem;
+}
+
+.secondary-cta:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.cta-group {
+    margin-top: var(--spacing-md);
+    display: flex;
+    gap: 10px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| 1. About Me Section 
+|--------------------------------------------------------------------------
+*/
+.about-me {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    padding-top: 0; 
+    border-bottom: none;
+}
+
+.about-content {
+    flex: 2;
+}
+
+.lead-text {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.profile-image {
+    flex: 1;
+    text-align: right;
+}
+
+.profile-image img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/*
+|--------------------------------------------------------------------------
+| 2. Projects Section 
+|--------------------------------------------------------------------------
+*/
+.projects-section h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: var(--spacing-md);
+}
+
+.project-card {
+    background-color: var(--color-light);
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.project-card h3 {
+    color: var(--color-primary);
+}
+
+.tech-stack {
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-stack span {
+    display: inline-block;
+    background-color: #e9ecef;
+    color: var(--color-text);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Link/Placeholder container styling */
+.card-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 1rem;
+    min-height: 40px; 
+    align-items: center;
+    justify-content: center;
+}
+
+.card-links .full-width-link {
+    flex: 1; 
+    padding: 0.75rem 1rem; 
+    border-radius: 4px;
+    text-align: center;
+}
+
+.placeholder-text {
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+    font-style: italic;
+    padding: 0.5rem 0;
+    width: 100%;
+    text-align: center;
+}
+
+/*
+|--------------------------------------------------------------------------
+| 4. Project Details Page Styling
+|--------------------------------------------------------------------------
+*/
+.project-details-main {
+    max-width: 900px;
+    margin-top: 0;
+}
+
+/* Enhancing project header prominence */
+.project-header {
+    text-align: center;
+    padding-bottom: var(--spacing-md);
+    border-bottom: 3px solid var(--color-primary); /* Stronger separator */
+    margin-bottom: var(--spacing-lg);
+}
+
+.project-title {
+    font-size: 2.5rem;
+    color: var(--color-text); 
+}
+.project-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-secondary);
+}
+
+.project-article h2 {
+    color: var(--color-primary);
+    border-left: 4px solid var(--color-primary);
+    padding-left: 10px;
+    margin-bottom: 1rem;
+}
+
+.project-article ul {
+    list-style: none; /* Removing default list style */
+    padding: 0;
+    margin: 0;
+}
+
+/* Custom list styling with checkmark SVG for improved hierarchy/scanability */
+.project-article ul li {
+    /* Base64 encoded SVG checkmark in primary color */
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23007bff' d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E") no-repeat left center / 16px 16px;
+    padding-left: 25px; 
+    margin-bottom: 10px;
+}
+
+.full-screenshot {
+    width: 100%;
+    height: auto;
+    margin: 1.5rem 0 var(--spacing-lg); 
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tech-stack.large span {
+    font-size: 1rem;
+    padding: 8px 15px;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border-radius: 5px;
+}
+
+.project-links {
+    margin-top: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+}
+
+.placeholder-text-large {
+    font-size: 1rem;
+    color: var(--color-secondary);
+    font-style: italic;
+    padding: 0.5rem 0;
+    width: 100%;
+    text-align: center;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Footer (Semantic)
+|--------------------------------------------------------------------------
+*/
+.site-footer {
+    text-align: center;
+    padding: 1rem var(--spacing-md);
+    border-top: 1px solid var(--color-divider);
+    background-color: var(--color-light);
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Mandatory Responsiveness (Media Queries)
+|--------------------------------------------------------------------------
+*/
+
+/* --- TABLET (768px and up) --- */
+@media (min-width: 768px) {
+    
+    .project-grid {
+        grid-template-columns: 1fr 1fr; 
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .about-me {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    /* Project Details: Two-column layout */
+    .content-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr; 
+        gap: var(--spacing-lg);
+        align-items: flex-start;
+    }
+    .content-grid section {
+        padding-top: 0;
+        padding-bottom: var(--spacing-md);
+        border-bottom: none;
+    }
+    .feature-list {
+        /* Vertical divider using left border/padding */
+        border-left: 1px solid var(--color-divider);
+        padding-left: var(--spacing-md);
+    }
+    .learning-section {
+        border-top: 1px solid var(--color-divider);
+    }
+}
+
+/* --- DESKTOP (1024px and up) --- */
+@media (min-width: 1024px) {
+    
+    .project-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .about-content h1 {
+        font-size: 3rem;
+    }
+}
+
+/* --- MOBILE SPECIFIC (767px and below) --- */
+@media (max-width: 767px) {
+
+    .main-heading { 
+        font-size: 2.5rem; 
+    }
+
+    .main-nav {
+        display: block;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        display: none; 
+        position: absolute;
+        top: 60px; 
+        left: 0;
+        width: 100%;
+        background-color: var(--color-light);
+        border-top: 1px solid var(--color-divider);
+        padding: 1rem var(--spacing-md);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-list.active {
+        display: flex; 
+    }
+
+    .menu-toggle {
+        display: block; 
+    }
+
+    .about-me {
+        flex-direction: column-reverse; 
+        text-align: center;
+    }
+
+    .profile-image {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .profile-image img {
+        max-width: 200px;
+    }
+
+    .cta-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .secondary-cta {
+        margin-left: 0; 
+    }
+}
